@@ -1,4 +1,4 @@
-const WA = require('@open-wa/wa-automate');
+const tele = require('telegraf');
 
 exports.run = (client, message, args) => {
 
@@ -24,7 +24,7 @@ exports.run = (client, message, args) => {
                 let usage = 'k!' + command.help.usage !== undefined ? command.help.usage : "No usage provided.";
                 let example = 'k!' + command.help.example !== undefined ? command.help.example : "No example provided."
 
-                return message.replyWithMarkdown(`*Perintah*\`\`\`${name}\`\`\`\n\n*Deskripsi*:\n${desc}\n\n*Penggunaan*:\n${usage}\n\n*Aliases*: ${aliases}\n\n*Cooldown*: ${cooldown} detik\n\n*Contoh*:\n${example}`, { disable_web_page_preview: true });
+                return message.replyWithMarkdown(`*Perintah*\`\`\`${name}\`\`\`\n\n*Deskripsi*:\n${desc}\n\n*Aliases*: ${aliases}\n\n*Cooldown*: ${cooldown} detik\n\n*Penggunaan*:\n${usage}\n\n*Contoh*:\n${example}`, { disable_web_page_preview: true });
             }
 
             if (!client.commands.has(cmd) || !client.commands.get(client.aliases.get(cmd))) {

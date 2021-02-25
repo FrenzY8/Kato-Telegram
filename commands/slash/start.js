@@ -1,6 +1,6 @@
-module.exports = async (client, message) => {
+module.exports = async (client, ctx) => {
 
-    message.replyWithAnimation('https://cdn.discordapp.com/attachments/795771950076133438/811821312107610112/katow.gif', { 
+    ctx.replyWithAnimation('https://cdn.discordapp.com/attachments/795771950076133438/811821312107610112/katow.gif', { 
         reply_markup: {
             inline_keyboard: [[{text: 'Inline', callback_data: 'inline'}], [{text: 'Prefix', callback_data: 'prefix'}]]
         },
@@ -8,4 +8,5 @@ module.exports = async (client, message) => {
         disable_web_page_preview: true
     });
     
+    console.log(`${ctx.message.from.username}(${ctx.message.from.id}) ran start`);
 }
